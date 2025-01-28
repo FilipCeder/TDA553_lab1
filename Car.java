@@ -1,5 +1,6 @@
 import java.awt.*;
 
+
 public class Car{
 
     public int nrDoors; // Number of doors on the car
@@ -47,11 +48,11 @@ public class Car{
         return enginePower * 0.01; 
     }
 
-    public void incrementSpeed(double amount){
+    private void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
-    public void decrementSpeed(double amount){
+    private void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
     
