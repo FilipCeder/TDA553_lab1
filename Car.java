@@ -1,19 +1,25 @@
 import java.awt.*;
 
 
-public class Car{
+public class Car implements Movable{
 
     public int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
+    public int posX;
+    public int posY;
+    public int direction;
     
     public Car(int doors, Color carColor, int power, String model){
         nrDoors = doors;
         color = carColor;
         enginePower = power;
         modelName = model;
+        posX = 0;
+        posY = 0;
+        direction = 0;
         stopEngine();
     }
     
@@ -30,6 +36,27 @@ public class Car{
 
     public Color getColor(){
         return color;
+    }
+
+    public int getDirection(){
+        return direction;
+    }
+
+    public int getPosX(){
+        return posX;
+    }
+
+    public int getPosY(){
+        return posY;
+    }
+
+    private void setPos(int x, int y){
+        posX = x;
+        posY = y;
+    }
+
+    private void setDirection(int newDirection){
+        direction = newDirection;
     }
 
     public void setColor(Color clr){
@@ -65,5 +92,35 @@ public class Car{
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
+    public void move(){
+        direction = getDirection();
+        posX = getPosX();
+        posY = getPosY();
+        if (direction == 0) {
+            setPos(posX, posY+1);
+        }
+        else if (direction == 1) {
+            setPos(posX+1, posY);
+        }
+        else if (direction == 2) {
+            setPos(posX, posY-1);
+        }
+        else if (direction == 3) {
+            setPos(posX-1, posY);
+        }
+    }
+
+    public void turnLeft(){
+        int[] directions = {0,1,2,3};
+        setDirection(directions[direction-1]);
+    }
+    
+    public void turnRight(){
+        int[] directions = {0,1,2,3};
+        setDirection(directions[direction+1]);
+    }
+    
+
     
 }
