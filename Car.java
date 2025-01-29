@@ -55,7 +55,7 @@ public class Car implements Movable{
         posY = y;
     }
 
-    private void setDirection(int newDirection){
+    void setDirection(int newDirection){
         direction = newDirection;
     }
 

@@ -20,8 +20,27 @@ public class Saab95Test {
     public void TestSaab95SpeedFactor(){
         Saab95 Saab95 = new Saab95();
         Saab95.setTurboOn();
-        assertEquals(   );
+        ;
     }
+
+    @Test
+    public void TestSaab95turnLeft(){
+        Saab95 Saab95 = new Saab95();
+        Saab95.setDirection(2);
+        Saab95.turnLeft();
+        assertEquals(1, Saab95.getDirection());
+
+
+    }
+
+    @Test
+    public void TestSaab95turnRight(){
+        Saab95 Saab95 = new Saab95();
+        Saab95.setDirection(2);
+        Saab95.turnRight();
+        assertEquals(3, Saab95.getDirection());
+    }
+
     
 
 }
