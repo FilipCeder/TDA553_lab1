@@ -55,7 +55,7 @@ public class Car implements Movable{
         posY = y;
     }
 
-    private void setDirection(int newDirection){
+    void setDirection(int newDirection){
         direction = newDirection;
     }
 
@@ -122,14 +122,16 @@ public class Car implements Movable{
         }
     }
 
-    public void turnLeft(){
-        int[] directions = {0,1,2,3};
-        setDirection(directions[direction-1]);
+    public void turnLeft() {
+        int[] directions = {0, 1, 2, 3};
+        int newDirection = (direction - 1 + directions.length) % directions.length;
+        setDirection(directions[newDirection]);
     }
     
-    public void turnRight(){
-        int[] directions = {0,1,2,3};
-        setDirection(directions[direction+1]);
+    public void turnRight() {
+        int[] directions = {0, 1, 2, 3};
+        int newDirection = (direction + 1) % directions.length;
+        setDirection(directions[newDirection]);
     }
     
 }
