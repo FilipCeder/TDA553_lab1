@@ -86,8 +86,7 @@ public class Car implements Movable{
     public void setSpeed(double speed){
         currentSpeed = speed;
     }
-    
-    // TODO fix this method according to lab pm
+
     public void gas(double amount){
         if (amount >= 0 && amount <= 1){
             if(getCurrentSpeed() + speedFactor() * amount <= getEnginePower()){
@@ -96,7 +95,7 @@ public class Car implements Movable{
         }            
     }
 
-    // TODO fix this method according to lab pm
+
     public void brake(double amount){
         if (amount >= 0 && amount <= 1){
             decrementSpeed(amount);

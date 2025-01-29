@@ -1,6 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-public class carTest {
+public class SanityCheck {
     @Test
     public void TestCarGasAmount() {
         Saab95 Saab95 = new Saab95(); 
