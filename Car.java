@@ -8,8 +8,8 @@ public class Car implements Movable{
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-    public int posX;
-    public int posY;
+    public double posX;
+    public double posY;
     public int direction;
     
     public Car(int doors, Color carColor, int power, String model){
@@ -42,15 +42,15 @@ public class Car implements Movable{
         return direction;
     }
 
-    public int getPosX(){
+    public double getPosX(){
         return posX;
     }
 
-    public int getPosY(){
+    public double getPosY(){
         return posY;
     }
 
-    private void setPos(int x, int y){
+    private void setPos(double x, double y){
         posX = x;
         posY = y;
     }
@@ -97,17 +97,18 @@ public class Car implements Movable{
         direction = getDirection();
         posX = getPosX();
         posY = getPosY();
+        currentSpeed = getCurrentSpeed();
         if (direction == 0) {
-            setPos(posX, posY+1);
+            setPos(posX, posY+currentSpeed);
         }
         else if (direction == 1) {
-            setPos(posX+1, posY);
+            setPos(posX+currentSpeed, posY);
         }
         else if (direction == 2) {
-            setPos(posX, posY-1);
+            setPos(posX, posY-currentSpeed);
         }
         else if (direction == 3) {
-            setPos(posX-1, posY);
+            setPos(posX-currentSpeed, posY);
         }
     }
 
@@ -120,7 +121,5 @@ public class Car implements Movable{
         int[] directions = {0,1,2,3};
         setDirection(directions[direction+1]);
     }
-    
-
     
 }
