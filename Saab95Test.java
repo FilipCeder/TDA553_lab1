@@ -32,7 +32,6 @@ public class Saab95Test {
     @Test
     public void testSaab95TurnLeft() {
         Saab95 saab95 = new Saab95();
-        saab95.setDirection(0);
 
         int[] expectedDirections = {3, 2, 1, 0};
         
@@ -46,8 +45,6 @@ public class Saab95Test {
     @Test
     public void testSaab95TurnRight() {
         Saab95 saab95 = new Saab95();
-        saab95.setDirection(0);
-
         int[] expectedDirections = {1, 2, 3, 0}; 
         
         for (int expectedDirection : expectedDirections) {
@@ -70,8 +67,8 @@ public class Saab95Test {
         };
 
         for (int i = 0; i < directions.length; i++) {
-            saab95.setDirection(directions[i]);
             saab95.move(); 
+            saab95.turnRight();
 
             assertEquals(expectedPositions[i][0], saab95.getPosX(), 0.01); 
             assertEquals(expectedPositions[i][1], saab95.getPosY(), 0.01); 
