@@ -4,20 +4,20 @@ import static org.junit.Assert.*;
 
 public class Saab95Test {
     @Test
-    public void TestSaab95TurboOn() {
+    public void testSaab95TurboOn() {
         Saab95 saab95 = new Saab95();
         saab95.setTurboOn();
         assertTrue(saab95.turboOn);
 }   
     @Test
-    public void TestSaab95TurboOff(){
+    public void testSaab95TurboOff(){
         Saab95 saab95 = new Saab95();
         saab95.setTurboOff();
         assertFalse(saab95.turboOn);
 
     }
     @Test
-    public void TestSaab95SpeedFactor(){
+    public void testSaab95SpeedFactor(){
         Saab95 saab95 = new Saab95();
         saab95.setTurboOn();
         saab95.speedFactor();
@@ -30,7 +30,7 @@ public class Saab95Test {
     }
   
     @Test
-    public void testsaab95TurnLeft() {
+    public void testSaab95TurnLeft() {
         Saab95 saab95 = new Saab95();
         saab95.setDirection(0);
 
@@ -44,20 +44,20 @@ public class Saab95Test {
 
 
     @Test
-    public void testsaab95TurnRight() {
+    public void testSaab95TurnRight() {
         Saab95 saab95 = new Saab95();
         saab95.setDirection(0);
 
-        int[] expectedDirections = {3, 2, 1, 0}; 
+        int[] expectedDirections = {1, 2, 3, 0}; 
         
         for (int expectedDirection : expectedDirections) {
-            saab95.turnLeft();
+            saab95.turnRight();
             assertEquals(expectedDirection, saab95.getDirection());
         }
     }
 
     @Test
-    public void testsaab95Move() {
+    public void testSaab95Move() {
         Saab95 saab95 = new Saab95();
         saab95.startEngine();
 

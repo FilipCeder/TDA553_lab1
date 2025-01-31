@@ -6,7 +6,7 @@ public class Volvo240Test {
 
 
     @Test
-    public void TestVolvo240SpeedFactor(){
+    public void testVolvo240SpeedFactor(){
         Volvo240 Volvo240 = new Volvo240();
         Volvo240.speedFactor();
         assertEquals(100*0.01*1.25, Volvo240.speedFactor(), 0.01);
@@ -32,10 +32,10 @@ public class Volvo240Test {
         Volvo240 volvo240 = new Volvo240();
         volvo240.setDirection(0);
 
-        int[] expectedDirections = {3, 2, 1, 0}; 
+        int[] expectedDirections = {1, 2, 3, 0}; 
         
         for (int expectedDirection : expectedDirections) {
-            volvo240.turnLeft();
+            volvo240.turnRight();
             assertEquals(expectedDirection, volvo240.getDirection());
         }
     }
