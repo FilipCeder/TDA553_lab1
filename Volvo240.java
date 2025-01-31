@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Volvo240 extends Car{
 
-    public double trimFactor;
+    private double trimFactor;
 
     public Volvo240(){
         super(4,Color.black,100,"Volvo240");

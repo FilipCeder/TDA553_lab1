@@ -3,14 +3,14 @@ import java.awt.*;
 
 public class Car implements Movable{
 
-    public int nrDoors; // Number of doors on the car
+    private int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
     public String modelName; // The car model name
-    public double posX;
-    public double posY;
-    public int direction;
+    private double posX;
+    private double posY;
+    private int direction;
     
     public Car(int doors, Color carColor, int power, String model){
         nrDoors = doors;
