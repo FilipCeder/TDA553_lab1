@@ -83,10 +83,6 @@ public class Car implements Movable{
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 
-    public void setSpeed(double speed){
-        currentSpeed = speed;
-    }
-
     public void gas(double amount){
         if (amount >= 0 && amount <= 1){
             if(getCurrentSpeed() + speedFactor() * amount <= getEnginePower()){
