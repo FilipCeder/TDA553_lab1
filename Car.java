@@ -5,7 +5,7 @@ public class Car implements Movable{
 
     private int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
+    protected double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
     private double posX;
@@ -71,7 +71,7 @@ public class Car implements Movable{
 	    currentSpeed = 0;
     }
 
-    public double speedFactor() {
+    protected double speedFactor() {
         return enginePower * 0.01; 
     }
 
