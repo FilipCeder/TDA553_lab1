@@ -7,7 +7,7 @@ public class Car implements Movable{
     public double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
-    public String modelName; // The car model name
+    private String modelName; // The car model name
     private double posX;
     private double posY;
     private int direction;
