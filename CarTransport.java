@@ -1,7 +1,7 @@
 import java.awt.*;
-
+import java.util.Stack;
 public class CarTransport extends FlatBedCar{
-
+    Stack<Car> carTransportBed = new Stack<>();
 
     public CarTransport(){
         super(2,Color.green,100,"MercedesLPS338",1);
@@ -20,5 +20,17 @@ public class CarTransport extends FlatBedCar{
             setAngle(1);
         }
 
+    }
+
+    public void loadCar(Car car){
+        if (carTransportBed.size() <= 4){
+            carTransportBed.push(car);
+        }
+    }
+
+    public void unloadCar(){
+        if (carTransportBed.size() > 0){
+            carTransportBed.pop();
+        }
     }
 }
