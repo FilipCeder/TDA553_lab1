@@ -7,15 +7,13 @@ public class CarTransport extends FlatBedCar{
         super(2,Color.green,100,"MercedesLPS338",1);
     }
 
-    //angle 0 means the ramp is raised
-    @Override
-    public void raiseAngle(double var){
+    //angle 0 means the ramp is raised. Overloaded from parent
+    public void raiseAngle(){
         setAngle(0);
     }
 
-    //Angle 1 means ramp is lowered. cannot lower if moving
-    @Override
-    public void lowerAngle(double var){
+    //Angle 1 means ramp is lowered. cannot lower if moving. Overloaded from parent
+    public void lowerAngle(){
         if (getCurrentSpeed() == 0){
             setAngle(1);
         }
