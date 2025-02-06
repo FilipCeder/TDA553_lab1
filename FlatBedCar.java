@@ -8,6 +8,7 @@ public class FlatBedCar extends Car{
     public FlatBedCar(int doors, Color carColor, int power, String model, double maxAngle){
         super(doors,carColor,power,model);
         angle = 0;
+        this.maxAngle = maxAngle;
     }
 
     public double getAngle(){

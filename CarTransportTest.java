@@ -1,15 +1,17 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.awt.Color;
+import java.util.Stack;
 
 public class CarTransportTest {
     @Test
     public void testload() {
         CarTransport carTransport = new CarTransport();
         Car car = new Volvo240();
-            
+        carTransport.lowerAngle();
+        Stack<Car> testStack = new Stack<>();
+        testStack.push(car);
         carTransport.loadCar(car);
-        assertEquals(car, carTransport.getLoadedCars);
+        assertEquals(testStack, carTransport.getLoadedCars());
         
 }
 
@@ -17,10 +19,12 @@ public class CarTransportTest {
     public void testUnload() {
         CarTransport carTransport = new CarTransport();
         Car car = new Volvo240();
-            
+        Stack<Car> testStack = new Stack<>();
+
+        carTransport.lowerAngle();
         carTransport.loadCar(car);
         carTransport.unloadCar();
-        assertEquals(car, carTransport.getLoadedCars);
+        assertEquals(testStack, carTransport.getLoadedCars());
 
 }
 }
