@@ -35,5 +35,20 @@ public class CarTransportTest {
         carTransport.raiseAngle();
         assertEquals(0, carTransport.getAngle(), 0.01);
     }
+
+    @Test
+    public void testCarTransportMove(){
+        CarTransport carTransport = new CarTransport();
+        Car car = new Volvo240();
+        carTransport.lowerAngle();
+        carTransport.loadCar(car);
+        carTransport.raiseAngle();
+        carTransport.move();
+        assertEquals(car.getPosX(), carTransport.getPosX(), 0.01);
+        assertEquals(car.getPosY(), carTransport.getPosY(), 0.01);
+
+
+
+    }
     
 }

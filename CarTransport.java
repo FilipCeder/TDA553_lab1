@@ -40,7 +40,6 @@ public class CarTransport extends FlatBedCar{
 
     public void move() {
         super.move();
-        move();
         double transportX = getPosX();
         double transportY = getPosY();
 
