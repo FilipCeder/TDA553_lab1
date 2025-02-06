@@ -11,6 +11,7 @@ public abstract class Car implements Movable{
     private double posX;
     private double posY;
     private int direction;
+    private boolean heavyVehicle;
     
     public Car(int doors, Color carColor, int power, String model){
         nrDoors = doors;
@@ -20,6 +21,7 @@ public abstract class Car implements Movable{
         posX = 0;
         posY = 0;
         direction = 0;
+        heavyVehicle = false;
         stopEngine();
     }
     
@@ -127,6 +129,13 @@ public abstract class Car implements Movable{
         int[] directions = {0, 1, 2, 3};
         int newDirection = (direction + 1) % directions.length;
         setDirection(directions[newDirection]);
+    }
+    protected boolean getHeavyVehicle(){
+        return heavyVehicle;
+    }
+
+    protected void setHeavyVehicle(){
+        heavyVehicle = true;
     }
     
 }
