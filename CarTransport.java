@@ -8,14 +8,13 @@ public class CarTransport extends FlatBedCar{
     }
 
     //angle 0 means the ramp is raised
-    @Override
-    public void raiseAngle(double var){
+    
+    public void raiseAngle(){
         setAngle(0);
     }
 
     //Angle 1 means ramp is lowered. cannot lower if moving
-    @Override
-    public void lowerAngle(double var){
+    public void lowerAngle(){
         if (getCurrentSpeed() == 0){
             setAngle(1);
         }

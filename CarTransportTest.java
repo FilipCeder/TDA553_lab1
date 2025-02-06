@@ -27,4 +27,13 @@ public class CarTransportTest {
         assertEquals(testStack, carTransport.getLoadedCars());
 
 }
+
+    @Test
+    public void testRaiseAngle(){
+        CarTransport carTransport = new CarTransport();
+        carTransport.lowerAngle();
+        carTransport.raiseAngle();
+        assertEquals(0, carTransport.getAngle(), 0.01);
+    }
+    
 }
