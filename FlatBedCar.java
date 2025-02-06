@@ -10,7 +10,7 @@ public class FlatBedCar extends Car{
         angle = 0;
     }
 
-    private double getAngle(){
+    public double getAngle(){
         return angle;
     }
 
