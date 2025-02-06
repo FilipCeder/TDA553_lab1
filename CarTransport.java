@@ -1,5 +1,5 @@
 import java.awt.*;
-import java.util.Stack;
+import java.util.*;
 public class CarTransport extends FlatBedCar{
     Stack<Car> carTransportBed = new Stack<>();
 
@@ -7,13 +7,15 @@ public class CarTransport extends FlatBedCar{
         super(2,Color.green,100,"MercedesLPS338",1);
     }
 
-    //angle 0 means the ramp is raised. Overloaded from parent
-    public void raiseAngle(){
+    //angle 0 means the ramp is raised
+    @Override
+    public void raiseAngle(double var){
         setAngle(0);
     }
 
-    //Angle 1 means ramp is lowered. cannot lower if moving. Overloaded from parent
-    public void lowerAngle(){
+    //Angle 1 means ramp is lowered. cannot lower if moving
+    @Override
+    public void lowerAngle(double var){
         if (getCurrentSpeed() == 0){
             setAngle(1);
         }
@@ -34,6 +36,17 @@ public class CarTransport extends FlatBedCar{
     public void unloadCar(){
         if (carTransportBed.size() > 0 && getAngle() == 1 ){
             carTransportBed.pop();
+        }
+    }
+
+    public void move() {
+        super.move();
+        move();
+        double transportX = getPosX();
+        double transportY = getPosY();
+
+        for (int i = 0; i < carTransportBed.size();i++){
+            carTransportBed.get(i).setPos(transportX,transportY);
         }
     }
 }
