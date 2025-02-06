@@ -40,6 +40,7 @@ public class FlatBedCar extends Car{
         setAngle(getAngle()-var);
     }
 
+    //Cannot start engine if angle is not 0. would indicate ramp is up for car transport
     @Override
     public void startEngine(){
         if (getAngle() == 0){
