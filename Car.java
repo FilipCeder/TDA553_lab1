@@ -50,7 +50,7 @@ public abstract class Car implements Movable{
         return posY;
     }
 
-    private void setPos(double x, double y){
+    protected void setPos(double x, double y){
         posX = x;
         posY = y;
     }
