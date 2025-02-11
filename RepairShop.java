@@ -12,6 +12,12 @@ public class RepairShop <T extends Car> implements CarCollection<T> {
     }
 
     @Override
+    public Queue<T> getLoadedCars(){
+        return parkedCars;
+    }
+
+
+    @Override
     public void loadCar(T car) {
         parkedCars.add(car);
     }
