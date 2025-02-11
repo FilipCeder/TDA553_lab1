@@ -21,7 +21,7 @@ public class RepairShopTest {
         Volvo240 car1 = new Volvo240();
         Stack<Car> testqueue = new Stack<>();
         shop.loadCar(car1);
-        shop.unloadCar();
+        shop.unloadCar(car1);
         shop.getLoadedCars();
 
     assertEquals(testqueue, shop.getLoadedCars());

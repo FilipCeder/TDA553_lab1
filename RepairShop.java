@@ -1,18 +1,18 @@
 
 
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
 
 public class RepairShop <T extends Car> implements CarCollection<T> {
 
-    private Queue<T> parkedCars;
+    private ArrayList<T> parkedCars;
 
     public RepairShop() {
-        parkedCars = new LinkedList<>(); 
+        parkedCars = new ArrayList<>(); 
     }
 
     @Override
-    public Queue<T> getLoadedCars(){
+    public ArrayList<T> getLoadedCars(){
         return parkedCars;
     }
 
@@ -22,13 +22,8 @@ public class RepairShop <T extends Car> implements CarCollection<T> {
         parkedCars.add(car);
     }
 
-    @Override
-    public T unloadCar() {
-        if (!parkedCars.isEmpty()) {
-            return parkedCars.remove(); // FIFO removal
-        }
-        System.out.println("Garage is empty!");
-        return null;
+    public boolean unloadCar(T car) {
+        return parkedCars.remove(car); 
     }
 }
 
