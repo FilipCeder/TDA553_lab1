@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.*;
-public class CarTransport extends FlatBedCar{
-    Stack<Car> carTransportBed = new Stack<>();
+public class CarTransport<T extends Car> extends FlatBedCar implements CarCollection<T> {
+    Stack<T> carTransportBed = new Stack<>();
 
     public CarTransport(){
         super(2,Color.green,100,"MercedesLPS338",1);
@@ -23,20 +23,23 @@ public class CarTransport extends FlatBedCar{
     }
 
     //Car transport capacity is 4 cars. If car is within +- meter of transport loading is permitted.
-    public void loadCar(Car car){
+    @Override
+    public void loadCar(T car){
         if (carTransportBed.size() <= 4 && getAngle() == 1 && car.getPosX() > getPosX() - 1 && car.getPosX() < getPosX() + 1 && car.getPosY() > getPosY() - 1 && car.getPosY() < getPosY() + 1 && car.getHeavyVehicle() == false){ 
             carTransportBed.push(car);
         }
     }
 
-    public Stack<Car> getLoadedCars(){
+    public Stack<T> getLoadedCars(){
         return carTransportBed;
     }
 
-    public void unloadCar(){
-        if (carTransportBed.size() > 0 && getAngle() == 1 ){
-            carTransportBed.pop();
+    @Override
+    public T unloadCar(){
+        if (!carTransportBed.isEmpty() && getAngle() == 1 ){
+            return carTransportBed.pop();
         }
+        return null;
     }
 
     public void move() {
