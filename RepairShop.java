@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 
 public class RepairShop <T extends Car> implements CarCollection<T> {

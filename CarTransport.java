@@ -3,9 +3,11 @@ import java.util.*;
 
 public class CarTransport<T extends Car> extends FlatBedCar implements CarCollection<T> {
     Stack<T> carTransportBed = new Stack<>();
+    private int capacity;
 
     public CarTransport(){
-        super(2,Color.green,100,"MercedesLPS338",1);
+        super(2,Color.green,100,"MercedesLPS338",1 );
+        capacity = 4;
         setHeavyVehicle();
     }
 
@@ -27,7 +29,7 @@ public class CarTransport<T extends Car> extends FlatBedCar implements CarCollec
     //Car transport capacity is 4 cars. If car is within +- meter of transport loading is permitted.
     @Override
     public void loadCar(T car){
-        if (carTransportBed.size() <= 4 && getAngle() == 1 && car.getPosX() > getPosX() - 1 && car.getPosX() < getPosX() + 1 && car.getPosY() > getPosY() - 1 && car.getPosY() < getPosY() + 1 && car.getHeavyVehicle() == false){ 
+        if (carTransportBed.size() <= capacity && getAngle() == 1 && car.getPosX() > getPosX() - 1 && car.getPosX() < getPosX() + 1 && car.getPosY() > getPosY() - 1 && car.getPosY() < getPosY() + 1 && car.getHeavyVehicle() == false){ 
             carTransportBed.push(car);
         }
     }
@@ -36,6 +38,7 @@ public class CarTransport<T extends Car> extends FlatBedCar implements CarCollec
         return carTransportBed;
     }
 
+    //If ramp is down and the bed is not empty, unload the last car that was loaded
     public T unloadCar(){
         if (!carTransportBed.isEmpty() && getAngle() == 1 ){
             return carTransportBed.pop();
@@ -43,6 +46,7 @@ public class CarTransport<T extends Car> extends FlatBedCar implements CarCollec
         return null;
     }
 
+    //Move the cars on the bed when the car transport moves
     public void move() {
         super.move();
         double transportX = getPosX();

@@ -19,6 +19,7 @@ public class FlatBedCar extends Car{
         return maxAngle;
     }
 
+    //Set angle of the flatbed. Cannot go bellow 0 or above max angle
     public void setAngle(double newAngle){
         if (getCurrentSpeed() == 0){
             if(newAngle > getMaxAngle()) {
