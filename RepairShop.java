@@ -1,14 +1,15 @@
 
 
-import java.util.LinkedList;
 import java.util.ArrayList;
 
 public class RepairShop <T extends Car> implements CarCollection<T> {
 
     private ArrayList<T> parkedCars;
+    private int capacity;
 
-    public RepairShop() {
-        parkedCars = new ArrayList<>(); 
+    public RepairShop(int capacity) {
+        parkedCars = new ArrayList<>();
+        this.capacity = capacity;
     }
 
     @Override
@@ -19,6 +20,9 @@ public class RepairShop <T extends Car> implements CarCollection<T> {
 
     @Override
     public void loadCar(T car) {
+        if(parkedCars.size() >= capacity){
+            throw new IndexOutOfBoundsException("shop is full");
+        }
         parkedCars.add(car);
     }
 
